@@ -1,0 +1,2 @@
+# Gameplay Summary
+The game I  made for this project was a simple crafting game that was very loosley inspired by my enjoyment of factory type games. There is a long list of crafting recipes that you have to go through, with each recipe is a button either labeled "Build" or "Sell". Pressing "Build" will make more of that item if you have one of all the necisary parts, pressing "Sell" will sell 1 of the item giving you more gold, as long as you have one in your inventory.
