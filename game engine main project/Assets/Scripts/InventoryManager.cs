@@ -89,4 +89,19 @@ public class InventoryManager : Singleton<InventoryManager>
 
         return output;
     }
+
+    public float GetCostOfItem(string ItemName)
+    {
+        float output = 0;
+
+        foreach (InventoryItem item in Inventory)
+        {
+            if (item.ItemName == ItemName)
+            {
+                output = item.MultiplicationValue;
+            }
+        }
+
+        return output;
+    }
 }

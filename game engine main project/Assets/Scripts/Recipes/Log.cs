@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using CostCalculator;
 
 public class Log : ResourceRecipe
 {
@@ -12,13 +13,12 @@ public class Log : ResourceRecipe
     {
         InventoryItem output = new InventoryItem();
         output.ItemName = "Log";
-        output.MultiplicationValue = 1;
 
         return output;
     }
 
     public override void TryMakeItem()
     {
-        InventoryManager.Instance.AddItemToInventory(Output().ItemName, Output().MultiplicationValue);
+        InventoryManager.Instance.AddItemToInventory(Output().ItemName, Calculator.NewCost(new List<float>()));
     }
 }

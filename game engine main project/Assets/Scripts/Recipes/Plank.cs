@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using CostCalculator;
 
 public class Plank : ResourceRecipe
 {
@@ -19,7 +20,6 @@ public class Plank : ResourceRecipe
     {
         InventoryItem output = new InventoryItem();
         output.ItemName = "Plank";
-        output.MultiplicationValue = 2;
 
         return output;
     }
@@ -28,12 +28,15 @@ public class Plank : ResourceRecipe
     {
         if (HasEnoughOfRequiredItem())
         {
+            List<float> AllCosts = new List<float>();
+
             foreach (InventoryItem item in RequiredItems())
             {
                 InventoryManager.Instance.removeItemFromInventory(item.ItemName);
+                AllCosts.Add(InventoryManager.Instance.GetCostOfItem(item.ItemName));
             }
 
-            InventoryManager.Instance.AddItemToInventory(Output().ItemName, Output().MultiplicationValue);
+            InventoryManager.Instance.AddItemToInventory(Output().ItemName, Calculator.NewCost(AllCosts));
         }
     }
 }
