@@ -1,5 +1,12 @@
 #Group Summary
-With the project required an implementation for each member in the group, I thought it would be easier to work alone as I was struggling to come up with a project concept that used each design pattern once.
+With the project requiring an implementation for each member in the group, I thought it would be easier to work alone as I was struggling to come up with a project concept that used each design pattern once. So, I took the decision to give myself more work for an easier brainstorm session so that I could actually complete all of the stuff required for this year end project. I did take a few hours to come up with the rudimentary idea that I have implemented, so I think that, in hindsight, choosing to work alone was the best option for me.
+
+Team Member: Sophie Colwill (everything) - 100919358
+
+Friday 17th October: Brainstorm
+Saturday 18th - Monday 20th October: Implement main gameplay loop, with Factory, Singleton, & Command.
+Tuesday 21st October: Implment DLL, add all sumaries to the ReadMe.
+Wednsday 22nd October: Polish project, submit
 
 # Gameplay Summary
 The game I  made for this project was a simple crafting game that was very loosley inspired by my enjoyment of factory type games. There is a long list of crafting recipes that you have to go through, with each recipe is a button either labeled "Build" or "Sell". Pressing "Build" will make more of that item if you have one of all the necisary parts, pressing "Sell" will sell 1 of the item giving you more gold, as long as you have one in your inventory.
