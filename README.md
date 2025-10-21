@@ -1,4 +1,4 @@
-#Group Summary
+# Group Summary
 With the project requiring an implementation for each member in the group, I thought it would be easier to work alone as I was struggling to come up with a project concept that used each design pattern once. So, I took the decision to give myself more work for an easier brainstorm session so that I could actually complete all of the stuff required for this year end project. I did take a few hours to come up with the rudimentary idea that I have implemented, so I think that, in hindsight, choosing to work alone was the best option for me.
 
 Team Member: Sophie Colwill (everything) - 100919358
