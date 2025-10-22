@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CostCalculator;
 
-public class Log : ResourceRecipe
+public class Rock : ResourceRecipe
 {
     public override List<InventoryItem> RequiredItems()
     {
@@ -11,7 +11,7 @@ public class Log : ResourceRecipe
     public override InventoryItem Output()
     {
         InventoryItem output = new InventoryItem();
-        output.ItemName = "Log";
+        output.ItemName = "Rock";
 
         return output;
     }

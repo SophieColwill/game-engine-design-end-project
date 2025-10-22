@@ -20,7 +20,7 @@
                     }
                 }
 
-                HighestNumber = (HighestNumber + (SecondHigestNumber / 2)) * 1.25f;
+                output = (HighestNumber + (SecondHigestNumber / 2)) * 1.25f;
             }
             else if (allCosts.Count == 1)
             {

@@ -17,6 +17,12 @@ public class Player : MonoBehaviour
     {
         CraftingRecipes.Add(new Log());
         CraftingRecipes.Add(new Plank());
+        CraftingRecipes.Add(new Rock());
+        CraftingRecipes.Add(new Iron());
+        CraftingRecipes.Add(new Brick());
+        CraftingRecipes.Add(new Hammer());
+        CraftingRecipes.Add(new Campfire());
+        CraftingRecipes.Add(new Charcoal());
     }
     #endregion
 

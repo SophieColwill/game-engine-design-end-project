@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("game engine final project dll")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16bfcd20efbc0ab438336ea98222281b6512eb2b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe7add8e95f62e6758d80187299f643a418daea2")]
 [assembly: System.Reflection.AssemblyProductAttribute("game engine final project dll")]
 [assembly: System.Reflection.AssemblyTitleAttribute("game engine final project dll")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

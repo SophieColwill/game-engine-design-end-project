@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using static UnityEditor.Rendering.CameraUI;
 
 public class InventoryManager : Singleton<InventoryManager>
 {
