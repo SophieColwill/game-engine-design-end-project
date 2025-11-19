@@ -3,16 +3,18 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Subject
 {
-    [SerializeField] int OnRecipe = 0;
+    public int OnRecipe = 0;
     [SerializeField] TMP_Text ItemNameBox;
     [SerializeField] TMP_Text ItemInputBox;
-    [SerializeField] TMP_Text InInventoryBox;
-    [SerializeField] TMP_Text CoinBox;
+    public TMP_Text InInventoryBox;
+    public TMP_Text CoinBox;
+
+    EffectsManager manager;
 
     #region Serialised Recipes
-    List<ResourceRecipe> CraftingRecipes = new List<ResourceRecipe>();
+    [HideInInspector]public List<ResourceRecipe> CraftingRecipes = new List<ResourceRecipe>();
     private void Start()
     {
         CraftingRecipes.Add(new Log());
@@ -23,21 +25,34 @@ public class Player : MonoBehaviour
         CraftingRecipes.Add(new Hammer());
         CraftingRecipes.Add(new Campfire());
         CraftingRecipes.Add(new Charcoal());
+
+        Attach(gameObject.AddComponent<AtemptToSell>());
+        Attach(gameObject.AddComponent<ChangeInventoryUI>());
+        Attach(gameObject.AddComponent<ChangeCurrencyValue>());
+
+        manager = FindAnyObjectByType<EffectsManager>();
     }
     #endregion
 
     public void TryMake()
     {
+        int lastAmountOfItem = InventoryManager.Instance.GetCurrentInventoryItem(CraftingRecipes[OnRecipe].Output().ItemName);
+
         CraftingRecipes[OnRecipe].TryMakeItem();
-        InInventoryBox.text = "In Inventory: " + InventoryManager.Instance.GetCurrentInventoryItem(CraftingRecipes[OnRecipe].Output().ItemName);
+
+        int CurrentAmountOfItem = InventoryManager.Instance.GetCurrentInventoryItem(CraftingRecipes[OnRecipe].Output().ItemName);
+        InInventoryBox.text = "In Inventory: " + CurrentAmountOfItem;
         UpdateRequiredItemsBox();
+
+        if (CurrentAmountOfItem != lastAmountOfItem)
+        {
+            manager.InitiateEffect(true);
+        }
     }
 
     public void TrySell()
     {
-        CraftingRecipes[OnRecipe].TrySellItem();
-        InInventoryBox.text = "In Inventory: " + InventoryManager.Instance.GetCurrentInventoryItem(CraftingRecipes[OnRecipe].Output().ItemName);
-        CoinBox.text = "Gold: " + Mathf.RoundToInt(InventoryManager.Instance.Coins);
+        NotifyObservers();
     }
 
     public void SwitchCurrentItem(bool up)
@@ -60,7 +75,7 @@ public class Player : MonoBehaviour
         }
 
         ItemNameBox.text = CraftingRecipes[OnRecipe].Output().ItemName;
-        InInventoryBox.text = "In Inventory: " + InventoryManager.Instance.GetCurrentInventoryItem(CraftingRecipes[OnRecipe].Output().ItemName);
+        
         UpdateRequiredItemsBox();
     }
 
