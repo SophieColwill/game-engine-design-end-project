@@ -1,3 +1,20 @@
+# FINAL SUBMISSION INFORMATION:
+
+# Upgrades
+I choose against upgrading most of my previous code since I had gotten 100/100 on the Course Project Progression, instead I focused on upgrading the visuals of the project with effects and art. Since I had gotten really good marks before, I decided my time would be best spent making the project actually look good since it was still using default assets, as well as focus my attention on the new implementations I had to add.
+The one thing that can potentially be counted as an upgrade is, in implementing the Observer pattern, I ended up reworking the sell button to use it.
+
+# Object Pooling
+The object pooling was added to some of the games effects, specifically the falling icons when you pressed the build or sell buttons. I added it this way to make the game have a small visual moment that is pleasing to the eye. The project benefits from this in a visual way that gives more appeal when pressing a button. I also added it here since it would need to instantiate a lot of objects to make it fill the screen, so object pooling would be the best way to keep performance up.
+It works by summoning a number of 2D objects designated in the editor and disabling them immediately. In the update function, it checks to see if any object is currently set active, and if it is, move it downward at an accelerating pace. When the player hits the build / sell button, it’ll first activate any object that isn’t already activated and set it’s position to a random location above the screen, then it’ll change the texture of the object depending on if the player pressed the build or sell button.
+
+# Observer
+When looking through my old code, I noticed that, when the player pressed the sell button, 3 separate things happened in the function alone. So I thought that turning the sell function into a number of observers instead would make it so I can add however much modularity to it as I want. Which ended up being the best call as, when I went to implement the Object Pooling effect script, I also needed to call it from the sell function as well.
+Now, whenever the player presses the sell button, it notifies all of the attached observers to change the inventory text, the amount of coins, activate the dropping effects, and to remove the items from the inventory.
+
+
+# PROJECT CHECK IN INFORMATION:
+
 # Group Summary
 With the project requiring an implementation for each member in the group, I thought it would be easier to work alone as I was struggling to come up with a project concept that used each design pattern once. So, I took the decision to give myself more work for an easier brainstorm session so that I could actually complete all of the stuff required for this year end project. I did take a few hours to come up with the rudimentary idea that I have implemented, so I think that, in hindsight, choosing to work alone was the best option for me.
 
