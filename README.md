@@ -5,10 +5,15 @@ I choose against upgrading most of my previous code since I had gotten 100/100 o
 The one thing that can potentially be counted as an upgrade is, in implementing the Observer pattern, I ended up reworking the sell button to use it.
 
 # Object Pooling
+<img width="411" height="431" alt="Object Pooling Graph" src="https://github.com/user-attachments/assets/8793ac07-f78f-482b-9d58-328e6ba0ed7d" />
+
 The object pooling was added to some of the games effects, specifically the falling icons when you pressed the build or sell buttons. I added it this way to make the game have a small visual moment that is pleasing to the eye. The project benefits from this in a visual way that gives more appeal when pressing a button. I also added it here since it would need to instantiate a lot of objects to make it fill the screen, so object pooling would be the best way to keep performance up.
 It works by summoning a number of 2D objects designated in the editor and disabling them immediately. In the update function, it checks to see if any object is currently set active, and if it is, move it downward at an accelerating pace. When the player hits the build / sell button, it’ll first activate any object that isn’t already activated and set it’s position to a random location above the screen, then it’ll change the texture of the object depending on if the player pressed the build or sell button.
 
 # Observer
+<img width="391" height="461" alt="Observer Grapgh" src="https://github.com/user-attachments/assets/ff8da2c9-006e-43dc-b994-b9744ecc0faf" />
+
+
 When looking through my old code, I noticed that, when the player pressed the sell button, 3 separate things happened in the function alone. So I thought that turning the sell function into a number of observers instead would make it so I can add however much modularity to it as I want. Which ended up being the best call as, when I went to implement the Object Pooling effect script, I also needed to call it from the sell function as well.
 Now, whenever the player presses the sell button, it notifies all of the attached observers to change the inventory text, the amount of coins, activate the dropping effects, and to remove the items from the inventory.
 
